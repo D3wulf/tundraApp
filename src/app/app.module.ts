@@ -6,6 +6,8 @@ import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';
 import { SharedModule } from './shared/shared.module';
+import { PagesModule } from './pages/pages.module';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -14,9 +16,12 @@ import { SharedModule } from './shared/shared.module';
     
   ],
   imports: [
-    BrowserModule,
     AppRoutingModule,
-    SharedModule
+    BrowserModule,
+    PagesModule,
+    ReactiveFormsModule,
+    SharedModule,
+    
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,25 +1,26 @@
+<br>
 <h3>Formulario de contacto</h3>
 
-<form method="post" action="#">
+<form method="post" action="#" [formGroup]="miFormulario" (ngSubmit)="enviar()">
     <div class="row gtr-uniform">
         <div class="col-6 col-12-xsmall">
-            <input type="text" name="demo-name" id="demo-name" value="" placeholder="Name" />
+            <input type="text" formControlName="nombre" name="nombre" id="demo-name" value="" placeholder="Nombre" />
         </div>
         <div class="col-6 col-12-xsmall">
-            <input type="email" name="demo-email" id="demo-email" value="" placeholder="Email" />
+            <input type="email" formControlName="email" name="email" id="demo-email" value="" placeholder="Email" />
         </div>
         <!-- Break -->
         <div class="col-12">
-            <select name="demo-category" id="demo-category">
-				<option value="">- Category -</option>
-				<option value="1">Manufacturing</option>
-				<option value="1">Shipping</option>
-				<option value="1">Administration</option>
-				<option value="1">Human Resources</option>
+            <select formControlName="categoria" name="categoria" id="demo-category">
+				<option value="">- Seleccione-</option>
+				<option value="recursoshumanos">Recursos Humanos</option>
+				<option value="direccion">Dirección</option>
+				<option value="administracion">Administración</option>
+				<option value="secretaria">Secretaría</option>
 			</select>
         </div>
         <!-- Break -->
-        <div class="col-4 col-12-small">
+        <!-- <div class="col-4 col-12-small">
             <input type="radio" id="demo-priority-low" name="demo-priority" checked>
             <label for="demo-priority-low">Low</label>
         </div>
@@ -31,24 +32,24 @@
             <input type="radio" id="demo-priority-high" name="demo-priority">
             <label for="demo-priority-high">High</label>
         </div>
-        <!-- Break -->
-        <div class="col-6 col-12-small">
+         Break -->
+        <!-- <div class="col-6 col-12-small">
             <input type="checkbox" id="demo-copy" name="demo-copy">
-            <label for="demo-copy">Email me a copy</label>
-        </div>
+            <label for="demo-copy">Env</label>
+        </div> -->
         <div class="col-6 col-12-small">
             <input type="checkbox" id="demo-human" name="demo-human" checked>
-            <label for="demo-human">I am a human</label>
+            <label for="demo-human">No soy un robot</label>
         </div>
         <!-- Break -->
         <div class="col-12">
-            <textarea name="demo-message" id="demo-message" placeholder="Enter your message" rows="6"></textarea>
+            <textarea name="mensaje" formControlName="mensaje" id="demo-message" placeholder="Escriba su mensaje" rows="6"></textarea>
         </div>
         <!-- Break -->
         <div class="col-12">
             <ul class="actions">
-                <li><input type="submit" value="Send Message" class="primary" /></li>
-                <li><input type="reset" value="Reset" /></li>
+                <li><button [disabled]="miFormulario.invalid" type="submit" class="primary">Enviar</button></li>
+                <li><input type="reset" class="primary" value="Cancelar" /></li>
             </ul>
         </div>
     </div>

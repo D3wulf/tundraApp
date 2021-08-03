@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { HttpClientModule } from '@angular/common/http';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { EmpresasComponent } from './empresas/empresas.component';
 import { FormularioComponent } from './formulario/formulario.component';
@@ -21,7 +21,10 @@ import { SectoresComponent } from './sectores/sectores.component';
     FormularioComponent
   ],
   imports: [
-    CommonModule,HttpClientModule,FormsModule
+    CommonModule,
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule,
   ],
   exports:[
     EmpresasComponent,
