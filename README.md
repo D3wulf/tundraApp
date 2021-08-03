@@ -1,5 +1,9 @@
 # Tundra
 
+Esta api la creo para repasar mis conocimientos de Angular y NodeJs, ya que en breve iniciaré un curso de Vue.
+
+Tundra es una empresa ficticia, el caso es que necesito práctica y asi me entretengo :)
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.2.8.
 
 ## Development server
