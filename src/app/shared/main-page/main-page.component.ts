@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { SharedService } from '../shared.service';
 
 @Component({
   selector: 'app-main-page',
@@ -8,9 +9,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MainPageComponent implements OnInit {
 
-  constructor() { }
+  
+
+  constructor(private sharedService:SharedService) { }
 
   ngOnInit(): void {
+
+    this.sharedService.cargaContenido();
   }
 
 }
