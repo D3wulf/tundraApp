@@ -2,8 +2,9 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 import { Empresa } from '../interfaces/empresas.interface';
-import { map } from 'rxjs/operators';
+import { map, tap } from 'rxjs/operators';
 import { Mensaje } from '../models/mensaje.model';
+import { loginForm } from '../interfaces/login-form.interface';
 
 
 const url = environment.base_url;
@@ -12,6 +13,20 @@ const url = environment.base_url;
   providedIn: 'root'
 })
 export class PagesService {
+
+
+  // para el can activate creamos la variable de tipo loginform (interface)
+  private _login!:loginForm | undefined;
+
+  //creamos un getter para que devuelva todo lo que haya en _login, pero que hay?
+  // pasamos al login y necesitamos la respuesta del backend y como la envia en el subscribe,
+  // debemos sacarla antes, y para eso está el tap, con eso ya cogemos la respuesta y 
+  get loginGuard():loginForm
+  {
+    
+    return{...this._login!}}
+
+  //-----------------------GUARDS--------------------------------//
 
   constructor(private http: HttpClient) {
 
@@ -27,20 +42,6 @@ export class PagesService {
     
   }
 
-
-   //Para la pagina usuarios// para paginacion, ver usuario service
-  //  cargarMensajes(){
-  //   const miUrl = `${url}/mensajes`;
-  //   return this.http.get<any>(miUrl)
-  //   .pipe(
-  //     map( (resp: 
-  //       { ok:boolean, Mensajes:Mensaje[] }) => 
-  //       resp.Mensajes
-        
-  //       )
-  //   );
-  //  }
-
    crearMensaje(datos:Mensaje){
 
 
@@ -50,12 +51,24 @@ export class PagesService {
     
    }
 
-  //  borrarMensaje(id:string){
+
+   login(formdata:loginForm){
+     // 1º la url
+    const miUrl = `${url}/login`;
+    this._login=formdata;
+    return this.http.post(miUrl,formdata).pipe(
+      //para hacer cosas antes del subscribe, el resp sera igual que el que se reciba en el subscribe
+      tap((loginUsuario:any)=>
+
+        this._login= loginUsuario
 
 
-  //   //Recordar post ( url, datos, headers)
-  //   const miUrl = `${url}/mensajes/${id}`;
-  //   return this.http.delete(miUrl);
+
+      )
+    );
     
-  //  }
-}
+
+   }
+  }
+
+  

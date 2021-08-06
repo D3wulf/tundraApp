@@ -1,0 +1,35 @@
+<br>
+<h3>Formulario Login</h3>
+
+<form method="post" action="#" [formGroup]="miLogin" (ngSubmit)="login()">
+    <div class="row gtr-uniform">
+
+        <div class="col-3 col-12-xsmall">
+            <input type="email" formControlName="email" name="email" id="demo-email" value="" placeholder="Email" />
+        </div>
+
+        <div class="col-3 col-12-xsmall">
+            <input type="text" formControlName="password" name="password" id="demo-pass" value="" placeholder="Password" />
+        </div>
+
+
+        <div class="col-12">
+            <p *ngIf="campoNoValido('email')">Email obligatorio</p>
+            <p *ngIf="campoNoValido('password')">Password obligatorio</p>
+        </div>
+
+
+        <!-- <div class="col-6 col-12-small">
+            <input type="checkbox" id="demo-human" name="demo-human" checked>
+            <label for="demo-human">No soy un robot</label>
+        </div> -->
+
+        <!-- Break -->
+        <div class="col-12">
+            <ul class="actions">
+                <li><button [disabled]="miLogin.invalid" type="submit" class="primary">Entrar</button></li>
+                <li><input type="reset" class="primary" value="Cancelar" /></li>
+            </ul>
+        </div>
+    </div>
+</form>
