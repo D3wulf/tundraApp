@@ -1,0 +1,23 @@
+<br>
+<header class="major">
+    <h3>Equipo de Tundra</h3>
+</header>
+
+<section>
+
+
+    <div class="posts">
+        <article *ngFor="let item of miEquipo">
+            <a href="#" class="image"><img [src]="item.imagen" alt="" /></a>
+            <h3>{{item.nombre}}</h3>
+            <p>{{item.puesto}}</p>
+            <ul class="icons">
+                <li><a href="https://twitter.com/{{item.rrss}}" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
+            </ul>
+        </article>
+    </div>
+
+
+
+</section>
+<hr>

@@ -5,6 +5,7 @@ import { Empresa } from '../interfaces/empresas.interface';
 import { map, tap } from 'rxjs/operators';
 import { Mensaje } from '../models/mensaje.model';
 import { loginForm } from '../interfaces/login-form.interface';
+import { Observable } from 'rxjs';
 
 
 const url = environment.base_url;
@@ -25,14 +26,11 @@ export class PagesService {
   {
     
     return{...this._login!}}
-
   //-----------------------GUARDS--------------------------------//
-
   constructor(private http: HttpClient) {
 
     this.cargarEmpresas();
    }
-
 
   cargarEmpresas(){
 
@@ -42,8 +40,9 @@ export class PagesService {
     
   }
 
-   crearMensaje(datos:Mensaje){
+  //-------------- Mensaje de contacto ------------//
 
+   crearMensaje(datos:Mensaje){
 
     //Recordar post ( url, datos, headers)
     const miUrl = `${url}/mensajes`;
@@ -51,6 +50,7 @@ export class PagesService {
     
    }
 
+   //-------------- Login ----------------//
 
    login(formdata:loginForm){
      // 1º la url
@@ -62,10 +62,17 @@ export class PagesService {
 
         this._login= loginUsuario
 
-
-
       )
     );
+    
+   }
+
+   BuscarEmpresa(termino:string):Observable<Empresa>{
+
+    return this.http.get<Empresa>(`${url}/buscar/${termino}`)
+    .pipe(
+      map((empresa)=> empresa ))
+      ;
     
 
    }

@@ -22,10 +22,10 @@ export class FormularioComponent implements OnInit {
 
     this.miFormulario = this.fb.group({
       //los valores como arrays, despues de la coma, van los validadores sincronos y luego asincronos
-      nombre: ['mik', [Validators.required, Validators.minLength(3),] ],
-      email: ['m@m.com', [Validators.required, Validators.email] ],
+      nombre: ['', [Validators.required, Validators.minLength(3),] ],
+      email: ['', [Validators.required, Validators.email] ],
       categoria:['', Validators.required],
-      mensaje: ['123456', [Validators.required, Validators.minLength(6),Validators.maxLength(255)] ],
+      mensaje: ['', [Validators.required, Validators.minLength(6),Validators.maxLength(255)] ],
       
   
     })

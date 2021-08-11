@@ -1,0 +1,19 @@
+<section *ngFor="let item of empresaSeleccionada">
+    <header class="main">
+        <h1>{{item.nombre}}</h1>
+    </header>
+
+    <span class="image main"><img [src]="item.url" [alt]="item.nombre" /></span>
+
+    <p>{{item.descripcion}}</p>
+
+    <hr class="major" />
+
+    <h2>Búsqueda en este apartado</h2>
+    <p>La búsqueda se realiza sobre las empresas que hay en la web, al ser una página de prueba no he implementado aún una búsqueda exhaustiva del resto de la web</p>
+
+    <hr class="major" />
+
+
+
+</section>

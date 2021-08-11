@@ -9,6 +9,7 @@ import { SharedModule } from './shared/shared.module';
 import { PagesModule } from './pages/pages.module';
 import { ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
+import { BusquedaComponent } from './shared/busqueda/busqueda.component';
 
 
 @NgModule({
@@ -25,6 +26,7 @@ import { RouterModule } from '@angular/router';
     RouterModule
     
   ],
+  exports:[BusquedaComponent],
   providers: [],
   bootstrap: [AppComponent]
 })

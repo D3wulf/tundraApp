@@ -14,18 +14,11 @@ import { PagesService } from '../pages.service';
 export class EmpresasComponent implements OnInit {
 
    public misEmpresas:Empresa[]= [];
-   cambioOrden= "image left";
-  
-
-
-  
-
 
   constructor( private pagesService: PagesService) {}
   ngOnInit(): void {
      this.cargaEmpresas();
      
-
   }
 
   cargaEmpresas(){
@@ -33,8 +26,8 @@ export class EmpresasComponent implements OnInit {
     this.pagesService.cargarEmpresas().subscribe( empresas =>{   
 
       this.misEmpresas = empresas;
-      console.log( this.misEmpresas);
-      console.log(typeof empresas);
+      //console.log( this.misEmpresas);
+      //console.log(typeof empresas);
       
       
      })

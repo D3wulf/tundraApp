@@ -1,15 +1,23 @@
 <br>
-<h3>Empresas Asociadas</h3>
-<hr>
-<section class="empresas" *ngFor="let item of misEmpresas">
-    <div class="col-6 col-12-small">
-        <div>
-            <h4>{{item.nombre}}</h4>
-            <p><span [ngClass]="cambioOrden"><img [src]="item.url" alt="" /></span> {{item.descripcion}}
-            </p>
-            <br>
-            <hr>
-        </div>
+<header class="major">
+    <h3>Empresas Asociadas</h3>
+</header>
 
+<section>
+
+
+    <div class="posts">
+        <article *ngFor="let item of misEmpresas">
+            <a href="#" class="image"><img [src]="item.url" alt="" /></a>
+            <h3>{{item.nombre}}</h3>
+            <p>{{item.descripcion}}</p>
+            <ul class="actions">
+                <li><a href="#" class="button"> Ir a la web</a></li>
+            </ul>
+        </article>
     </div>
+
+
+
 </section>
+<hr>

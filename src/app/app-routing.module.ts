@@ -9,6 +9,9 @@ import { SectoresComponent } from './pages/sectores/sectores.component';
 import { LoginComponent } from './pages/login/login.component';
 import { AuthGuard } from './guards/auth.guard';
 import { PrivateComponent } from './pages/private/private.component';
+import { EquipoComponent } from './pages/equipo/equipo.component';
+import { TrabajaconnosotrosComponent } from './pages/trabajaconnosotros/trabajaconnosotros.component';
+import { VerempresasComponent } from './pages/verempresas/verempresas.component';
 
 
 const routes: Routes = [
@@ -25,6 +28,9 @@ const routes: Routes = [
     path:'empresas', component:EmpresasComponent
   },
   {
+    path:'empresas/:empresa', component:VerempresasComponent
+  },
+  {
     path:'sectores', component:SectoresComponent
   },
   {
@@ -38,13 +44,20 @@ const routes: Routes = [
   {
     path:'login', component:LoginComponent,
   },
-  {
-    
+  {  
     path:'private', component:PrivateComponent,
     canActivate:[AuthGuard],
-    
-    
+      
   },
+  {  
+    path:'equipo', component:EquipoComponent,
+      
+  },
+  {  
+    path:'trabajaconnosotros', component:TrabajaconnosotrosComponent,
+      
+  },
+
 
   {
     path:'**', redirectTo:'/index'

@@ -1,0 +1,6 @@
+<!-- Search -->
+<section id="search" class="alt">
+    <form (submit)="buscar(txt.value)" method="post" action="#">
+        <input #txt type="text" name="query" id="query" [(ngModel)]="termino" placeholder="Buscar empresa" />
+    </form>
+</section>
